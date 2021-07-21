@@ -67,10 +67,15 @@ namespace Comp123_zcardoza_assign03
         public void Save(string teamRepository)
         {         
             try {
-                MessageBox.Show("enter");
+                foreach (Team team in _Teams)
+                {
+                    foreach (Player player in team.Roster)
+                    {
+                        player.Team = null;
+                    }
+                }
                 string serializedData = JsonSerializer.Serialize(_Teams);
                 File.WriteAllText(teamRepository, serializedData);
-                MessageBox.Show("Serialized");
             }
 
             catch (JsonException e) {

@@ -39,12 +39,23 @@ namespace Comp123_zcardoza_assign03
                     _teamRepository.TradePlayer(_player, _player.Team.TeamId, team.TeamId);
                     break;
                 }
-            }       
+            }
+            Form1 Main = new Form1();
+            Main.Enabled = true;
+            Main.Location = this.Location;
+            Main.Show();
+            Main.Activate();
+            this.Close();
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
-
+            Form1 Main = new Form1();
+            Main.Enabled = true;
+            Main.Location = this.Location;
+            Main.Show();
+            Main.Activate();
+            this.Close();
         }
     }
 }

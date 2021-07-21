@@ -38,9 +38,9 @@ namespace Comp123_zcardoza_assign03
             // 
             this.teamList.FormattingEnabled = true;
             this.teamList.ItemHeight = 25;
-            this.teamList.Location = new System.Drawing.Point(96, 172);
+            this.teamList.Location = new System.Drawing.Point(12, 48);
             this.teamList.Name = "teamList";
-            this.teamList.Size = new System.Drawing.Size(405, 379);
+            this.teamList.Size = new System.Drawing.Size(280, 279);
             this.teamList.TabIndex = 1;
             this.teamList.SelectedIndexChanged += new System.EventHandler(this.teamList_SelectedIndexChanged);
             // 
@@ -48,15 +48,15 @@ namespace Comp123_zcardoza_assign03
             // 
             this.playerList.FormattingEnabled = true;
             this.playerList.ItemHeight = 25;
-            this.playerList.Location = new System.Drawing.Point(639, 172);
+            this.playerList.Location = new System.Drawing.Point(343, 48);
             this.playerList.Name = "playerList";
-            this.playerList.Size = new System.Drawing.Size(409, 379);
+            this.playerList.Size = new System.Drawing.Size(283, 279);
             this.playerList.TabIndex = 2;
             // 
             // TradePlayerButton
             // 
             this.TradePlayerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TradePlayerButton.Location = new System.Drawing.Point(422, 642);
+            this.TradePlayerButton.Location = new System.Drawing.Point(174, 333);
             this.TradePlayerButton.Name = "TradePlayerButton";
             this.TradePlayerButton.Size = new System.Drawing.Size(295, 73);
             this.TradePlayerButton.TabIndex = 4;
@@ -68,7 +68,7 @@ namespace Comp123_zcardoza_assign03
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1135, 758);
+            this.ClientSize = new System.Drawing.Size(639, 430);
             this.Controls.Add(this.TradePlayerButton);
             this.Controls.Add(this.playerList);
             this.Controls.Add(this.teamList);

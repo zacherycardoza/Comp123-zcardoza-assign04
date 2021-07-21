@@ -26,7 +26,6 @@ namespace Comp123_zcardoza_assign03
             }
             try {
                 teamList.SelectedIndex = 0;
-
             }
             catch {
                 throw new Exception();
