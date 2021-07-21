@@ -67,16 +67,18 @@ namespace Comp123_zcardoza_assign03
         public void Save(string teamRepository)
         {         
             try {
-                string serializedData = JsonSerializer.Serialize<List<Team>>(_Teams);
+                MessageBox.Show("enter");
+                string serializedData = JsonSerializer.Serialize(_Teams);
                 File.WriteAllText(teamRepository, serializedData);
                 MessageBox.Show("Serialized");
             }
 
-            catch {
-                MessageBox.Show("FAILED TO SAVE");
+            catch (JsonException e) {
+                MessageBox.Show(e.Message);
             }
 
-            finally {
+            catch {
+                MessageBox.Show("FAILED TO SAVE");
             }
         }
     }
