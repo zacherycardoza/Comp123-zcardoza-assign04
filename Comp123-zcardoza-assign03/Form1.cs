@@ -14,19 +14,41 @@ namespace Comp123_zcardoza_assign03
 {
     public partial class Form1 : Form
     {
+        private TeamRepository _teamRepository;
         public Form1()
         {
             InitializeComponent();
+            _teamRepository = new TeamRepository("teamData.json");
+
+            foreach(Team team in _teamRepository.Teams)
+            {
+                teamList.Items.Add(team.Name);
+            }
+            try {
+                teamList.SelectedIndex = 0;
+
+            }
+            catch {
+                throw new Exception();
+            }            
+        }
+        private void TradePlayerButton_Click(object sender, EventArgs e)
+        {
+            TradePlayerForm tradePlayerForm = new TradePlayerForm();
+            tradePlayerForm.playerNameLabel.Text = playerList.SelectedItem.ToString();
+            tradePlayerForm.Enabled = true; 
+            tradePlayerForm.Location = this.Location; 
+            tradePlayerForm.Activate();
+            this.Hide();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void teamList_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            MessageBox.Show("hey hey yall");
+            playerList.Items.Clear();
+            foreach (Player player in _teamRepository.Teams[teamList.SelectedIndex].Roster)
+            {
+                playerList.Items.Add(player.Name);
+            }    
         }
     }
 }
