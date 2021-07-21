@@ -38,6 +38,7 @@ namespace Comp123_zcardoza_assign03
             tradePlayerForm.playerNameLabel.Text = playerList.SelectedItem.ToString();
             tradePlayerForm.Enabled = true; 
             tradePlayerForm.Location = this.Location; 
+            tradePlayerForm.Show();
             tradePlayerForm.Activate();
             this.Hide();
         }

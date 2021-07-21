@@ -18,7 +18,28 @@ namespace Comp123_zcardoza_assign03
         {
             InitializeComponent();
             _teamRepository = new TeamRepository("teamData.json");
+            /*
+            foreach (Team Team in _teamRepository.Teams)
+            {
+                foreach(Player Player in Team.Roster)
+                {
+                    if (Player.Name == playerNameLabel.Text)
+                    {
+                        _player = Player;
+                    }
+                }
+            }
+
+            playerCurrentTeam.Text = _player.Team.Name;
             
+
+            foreach (Team Team in _teamRepository.Teams)
+            {
+                if (Team.Name != _player.Team.Name)
+                {
+                    possibleTeamList.Items.Add(Team);
+                }
+            } */
         }
 
         private void AcceptButton_Click(object sender, EventArgs e)

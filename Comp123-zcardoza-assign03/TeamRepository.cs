@@ -38,17 +38,6 @@ namespace Comp123_zcardoza_assign03
                 }
             }
             Save("teamData.json");
-            // test code to cycle through data
-                string everyone = "";
-                foreach (var Team in _Teams)
-                {
-                    everyone += $"Team: {Team.Name}";
-                    foreach(var Player in Team.Roster)
-                    {
-                        everyone += $"{Player.PlayerId}.{Player.Name}  ";
-                    }
-                }
-                MessageBox.Show(everyone);
         }
         public void Load(string teamRepository)
         {
