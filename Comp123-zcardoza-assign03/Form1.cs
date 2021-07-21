@@ -36,6 +36,14 @@ namespace Comp123_zcardoza_assign03
         {
             TradePlayerForm tradePlayerForm = new TradePlayerForm();
             tradePlayerForm.playerNameLabel.Text = playerList.SelectedItem.ToString();
+            tradePlayerForm.playerCurrentTeam.Text = teamList.SelectedItem.ToString();
+            foreach (Team Team in _teamRepository.Teams)
+            {
+                if(Team.Name != teamList.SelectedItem.ToString())
+                {
+                    tradePlayerForm.possibleTeamList.Items.Add(Team.Name);
+                }    
+            }
             tradePlayerForm.Enabled = true; 
             tradePlayerForm.Location = this.Location; 
             tradePlayerForm.Show();

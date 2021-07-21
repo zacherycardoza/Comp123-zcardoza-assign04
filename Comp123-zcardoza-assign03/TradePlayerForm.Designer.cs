@@ -116,8 +116,8 @@ namespace Comp123_zcardoza_assign03
         private System.Windows.Forms.Button AcceptButton;
         private System.Windows.Forms.Button CancelButton;
         public System.Windows.Forms.Label playerNameLabel;
-        private System.Windows.Forms.Label playerCurrentTeam;
-        private System.Windows.Forms.ListBox possibleTeamList;
         private System.Windows.Forms.Label possibleTeamListLabel;
+        public System.Windows.Forms.Label playerCurrentTeam;
+        public System.Windows.Forms.ListBox possibleTeamList;
     }
 }

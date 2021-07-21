@@ -17,34 +17,29 @@ namespace Comp123_zcardoza_assign03
         public TradePlayerForm()
         {
             InitializeComponent();
-            _teamRepository = new TeamRepository("teamData.json");
-            /*
-            foreach (Team Team in _teamRepository.Teams)
-            {
-                foreach(Player Player in Team.Roster)
-                {
-                    if (Player.Name == playerNameLabel.Text)
-                    {
-                        _player = Player;
-                    }
-                }
-            }
-
-            playerCurrentTeam.Text = _player.Team.Name;
-            
-
-            foreach (Team Team in _teamRepository.Teams)
-            {
-                if (Team.Name != _player.Team.Name)
-                {
-                    possibleTeamList.Items.Add(Team);
-                }
-            } */
+            _teamRepository = new TeamRepository("teamData.json");  
         }
 
         private void AcceptButton_Click(object sender, EventArgs e)
         {
-            
+            foreach (Team Team in _teamRepository.Teams)
+            {
+                foreach(Player player in Team.Roster)
+                {
+                    if(player.Name == playerNameLabel.Text)
+                    {
+                        _player = player;
+                    }
+                }    
+            }
+            foreach(Team team in _teamRepository.Teams)
+            {
+                if(team.Name == possibleTeamList.SelectedItem.ToString())
+                {
+                    _teamRepository.TradePlayer(_player, _player.Team.TeamId, team.TeamId);
+                    break;
+                }
+            }       
         }
 
         private void CancelButton_Click(object sender, EventArgs e)

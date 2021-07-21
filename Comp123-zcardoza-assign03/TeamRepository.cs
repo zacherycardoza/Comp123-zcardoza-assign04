@@ -47,6 +47,14 @@ namespace Comp123_zcardoza_assign03
                 
                 string teamData = File.ReadAllText(teamRepository);
                 _Teams = JsonSerializer.Deserialize<List<Team>>(teamData);
+
+                foreach(Team team in _Teams)
+                {
+                    foreach(Player player in team.Roster)
+                    {
+                        player.Team = team;
+                    }
+                }
             }
 
             catch (FileNotFoundException){
