@@ -39,7 +39,7 @@ namespace Comp123_zcardoza_assign03
             // 
             // AcceptButton
             // 
-            this.AcceptButton.Location = new System.Drawing.Point(80, 298);
+            this.AcceptButton.Location = new System.Drawing.Point(36, 168);
             this.AcceptButton.Name = "AcceptButton";
             this.AcceptButton.Size = new System.Drawing.Size(227, 87);
             this.AcceptButton.TabIndex = 0;
@@ -49,9 +49,9 @@ namespace Comp123_zcardoza_assign03
             // 
             // CancelButton
             // 
-            this.CancelButton.Location = new System.Drawing.Point(432, 299);
+            this.CancelButton.Location = new System.Drawing.Point(36, 261);
             this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(221, 85);
+            this.CancelButton.Size = new System.Drawing.Size(227, 85);
             this.CancelButton.TabIndex = 1;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
@@ -60,16 +60,17 @@ namespace Comp123_zcardoza_assign03
             // playerNameLabel
             // 
             this.playerNameLabel.AutoSize = true;
-            this.playerNameLabel.Location = new System.Drawing.Point(77, 28);
+            this.playerNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playerNameLabel.Location = new System.Drawing.Point(12, 16);
             this.playerNameLabel.Name = "playerNameLabel";
-            this.playerNameLabel.Size = new System.Drawing.Size(180, 25);
+            this.playerNameLabel.Size = new System.Drawing.Size(573, 79);
             this.playerNameLabel.TabIndex = 2;
             this.playerNameLabel.Text = "playerNameLabel";
             // 
             // playerCurrentTeam
             // 
             this.playerCurrentTeam.AutoSize = true;
-            this.playerCurrentTeam.Location = new System.Drawing.Point(86, 95);
+            this.playerCurrentTeam.Location = new System.Drawing.Point(31, 109);
             this.playerCurrentTeam.Name = "playerCurrentTeam";
             this.playerCurrentTeam.Size = new System.Drawing.Size(196, 25);
             this.playerCurrentTeam.TabIndex = 3;
@@ -79,25 +80,26 @@ namespace Comp123_zcardoza_assign03
             // 
             this.possibleTeamList.FormattingEnabled = true;
             this.possibleTeamList.ItemHeight = 25;
-            this.possibleTeamList.Location = new System.Drawing.Point(454, 63);
+            this.possibleTeamList.Location = new System.Drawing.Point(351, 168);
             this.possibleTeamList.Name = "possibleTeamList";
-            this.possibleTeamList.Size = new System.Drawing.Size(276, 179);
+            this.possibleTeamList.Size = new System.Drawing.Size(234, 179);
             this.possibleTeamList.TabIndex = 4;
+            this.possibleTeamList.SelectedIndexChanged += new System.EventHandler(this.possibleTeamList_SelectedIndexChanged);
             // 
             // possibleTeamListLabel
             // 
             this.possibleTeamListLabel.AutoSize = true;
-            this.possibleTeamListLabel.Location = new System.Drawing.Point(501, 21);
+            this.possibleTeamListLabel.Location = new System.Drawing.Point(346, 109);
             this.possibleTeamListLabel.Name = "possibleTeamListLabel";
-            this.possibleTeamListLabel.Size = new System.Drawing.Size(165, 25);
+            this.possibleTeamListLabel.Size = new System.Drawing.Size(114, 25);
             this.possibleTeamListLabel.TabIndex = 5;
-            this.possibleTeamListLabel.Text = "Possible Teams";
+            this.possibleTeamListLabel.Text = "New Team";
             // 
             // TradePlayerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(620, 370);
             this.Controls.Add(this.possibleTeamListLabel);
             this.Controls.Add(this.possibleTeamList);
             this.Controls.Add(this.playerCurrentTeam);

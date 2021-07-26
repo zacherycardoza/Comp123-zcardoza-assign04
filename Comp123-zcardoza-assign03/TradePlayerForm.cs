@@ -57,5 +57,10 @@ namespace Comp123_zcardoza_assign03
             Main.Activate();
             this.Close();
         }
+
+        private void possibleTeamList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
