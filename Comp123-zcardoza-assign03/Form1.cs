@@ -19,44 +19,32 @@ namespace Comp123_zcardoza_assign03
         {
             InitializeComponent();
             _teamRepository = new TeamRepository("teamData.json");
-
             foreach(Team team in _teamRepository.Teams)
-            {
                 teamList.Items.Add(team.Name);
-            }
-            try {
-                teamList.SelectedIndex = 0;
-            }
-            catch {
-                throw new Exception();
-            }            
+            teamList.SelectedIndex = 0;           
         }
         private void TradePlayerButton_Click(object sender, EventArgs e)
         {
-            TradePlayerForm tradePlayerForm = new TradePlayerForm();
-            tradePlayerForm.playerNameLabel.Text = playerList.SelectedItem.ToString();
-            tradePlayerForm.playerCurrentTeam.Text = teamList.SelectedItem.ToString();
-            foreach (Team Team in _teamRepository.Teams)
-            {
-                if(Team.Name != teamList.SelectedItem.ToString())
-                {
-                    tradePlayerForm.possibleTeamList.Items.Add(Team.Name);
-                }    
+            if (playerList.SelectedItem != null) {
+                TradePlayerForm tradePlayerForm = new TradePlayerForm();
+                tradePlayerForm.playerNameLabel.Text = playerList.SelectedItem.ToString();
+                tradePlayerForm.playerCurrentTeam.Text = teamList.SelectedItem.ToString();
+                foreach (Team Team in _teamRepository.Teams)
+                    if (Team.Name != teamList.SelectedItem.ToString())
+                        tradePlayerForm.possibleTeamList.Items.Add(Team.Name);
+                tradePlayerForm.Location = this.Location;
+                tradePlayerForm.Show();
+                Hide();
             }
-            tradePlayerForm.Enabled = true; 
-            tradePlayerForm.Location = this.Location; 
-            tradePlayerForm.Show();
-            tradePlayerForm.Activate();
-            this.Hide();
+            else
+                MessageBox.Show("Select a Player.");
         }
 
         private void teamList_SelectedIndexChanged(object sender, EventArgs e)
         {
             playerList.Items.Clear();
             foreach (Player player in _teamRepository.Teams[teamList.SelectedIndex].Roster)
-            {
-                playerList.Items.Add(player.Name);
-            }    
+                playerList.Items.Add(player.Name);           
         }
     }
 }

@@ -35,13 +35,14 @@ namespace Comp123_zcardoza_assign03
             this.playerCurrentTeam = new System.Windows.Forms.Label();
             this.possibleTeamList = new System.Windows.Forms.ListBox();
             this.possibleTeamListLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // AcceptButton
             // 
-            this.AcceptButton.Location = new System.Drawing.Point(36, 168);
+            this.AcceptButton.Location = new System.Drawing.Point(159, 297);
             this.AcceptButton.Name = "AcceptButton";
-            this.AcceptButton.Size = new System.Drawing.Size(227, 87);
+            this.AcceptButton.Size = new System.Drawing.Size(117, 49);
             this.AcceptButton.TabIndex = 0;
             this.AcceptButton.Text = "Trade";
             this.AcceptButton.UseVisualStyleBackColor = true;
@@ -49,9 +50,9 @@ namespace Comp123_zcardoza_assign03
             // 
             // CancelButton
             // 
-            this.CancelButton.Location = new System.Drawing.Point(36, 261);
+            this.CancelButton.Location = new System.Drawing.Point(36, 299);
             this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(227, 85);
+            this.CancelButton.Size = new System.Drawing.Size(117, 47);
             this.CancelButton.TabIndex = 1;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
@@ -80,26 +81,35 @@ namespace Comp123_zcardoza_assign03
             // 
             this.possibleTeamList.FormattingEnabled = true;
             this.possibleTeamList.ItemHeight = 25;
-            this.possibleTeamList.Location = new System.Drawing.Point(351, 168);
+            this.possibleTeamList.Location = new System.Drawing.Point(351, 143);
             this.possibleTeamList.Name = "possibleTeamList";
-            this.possibleTeamList.Size = new System.Drawing.Size(234, 179);
+            this.possibleTeamList.Size = new System.Drawing.Size(234, 204);
             this.possibleTeamList.TabIndex = 4;
-            this.possibleTeamList.SelectedIndexChanged += new System.EventHandler(this.possibleTeamList_SelectedIndexChanged);
             // 
             // possibleTeamListLabel
             // 
             this.possibleTeamListLabel.AutoSize = true;
             this.possibleTeamListLabel.Location = new System.Drawing.Point(346, 109);
             this.possibleTeamListLabel.Name = "possibleTeamListLabel";
-            this.possibleTeamListLabel.Size = new System.Drawing.Size(114, 25);
+            this.possibleTeamListLabel.Size = new System.Drawing.Size(171, 25);
             this.possibleTeamListLabel.TabIndex = 5;
-            this.possibleTeamListLabel.Text = "New Team";
+            this.possibleTeamListLabel.Text = "Available Teams";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(31, 148);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(143, 25);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Current Team";
             // 
             // TradePlayerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(620, 370);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.possibleTeamListLabel);
             this.Controls.Add(this.possibleTeamList);
             this.Controls.Add(this.playerCurrentTeam);
@@ -121,5 +131,6 @@ namespace Comp123_zcardoza_assign03
         private System.Windows.Forms.Label possibleTeamListLabel;
         public System.Windows.Forms.Label playerCurrentTeam;
         public System.Windows.Forms.ListBox possibleTeamList;
+        private System.Windows.Forms.Label label1;
     }
 }
