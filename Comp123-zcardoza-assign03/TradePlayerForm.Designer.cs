@@ -40,9 +40,9 @@ namespace Comp123_zcardoza_assign03
             // 
             // AcceptButton
             // 
-            this.AcceptButton.Location = new System.Drawing.Point(159, 297);
+            this.AcceptButton.Location = new System.Drawing.Point(36, 208);
             this.AcceptButton.Name = "AcceptButton";
-            this.AcceptButton.Size = new System.Drawing.Size(117, 49);
+            this.AcceptButton.Size = new System.Drawing.Size(309, 67);
             this.AcceptButton.TabIndex = 0;
             this.AcceptButton.Text = "Trade";
             this.AcceptButton.UseVisualStyleBackColor = true;
@@ -50,9 +50,9 @@ namespace Comp123_zcardoza_assign03
             // 
             // CancelButton
             // 
-            this.CancelButton.Location = new System.Drawing.Point(36, 299);
+            this.CancelButton.Location = new System.Drawing.Point(36, 282);
             this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(117, 47);
+            this.CancelButton.Size = new System.Drawing.Size(309, 65);
             this.CancelButton.TabIndex = 1;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
@@ -71,9 +71,10 @@ namespace Comp123_zcardoza_assign03
             // playerCurrentTeam
             // 
             this.playerCurrentTeam.AutoSize = true;
-            this.playerCurrentTeam.Location = new System.Drawing.Point(31, 109);
+            this.playerCurrentTeam.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playerCurrentTeam.Location = new System.Drawing.Point(29, 143);
             this.playerCurrentTeam.Name = "playerCurrentTeam";
-            this.playerCurrentTeam.Size = new System.Drawing.Size(196, 25);
+            this.playerCurrentTeam.Size = new System.Drawing.Size(292, 37);
             this.playerCurrentTeam.TabIndex = 3;
             this.playerCurrentTeam.Text = "playerCurrentTeam";
             // 
@@ -98,7 +99,7 @@ namespace Comp123_zcardoza_assign03
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(31, 148);
+            this.label1.Location = new System.Drawing.Point(31, 109);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(143, 25);
             this.label1.TabIndex = 6;
