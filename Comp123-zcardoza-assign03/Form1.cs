@@ -15,14 +15,27 @@ namespace Comp123_zcardoza_assign03
     public partial class Form1 : Form
     {
         private readonly TeamRepository _teamRepository;
+        private readonly MatchupRepository _matchupRepository;
+
         public Form1()
         {
             InitializeComponent();
             _teamRepository = new TeamRepository("teamData.json");
+            _matchupRepository = new MatchupRepository("matchupDataFile.json");
             foreach(Team team in _teamRepository.Teams)
                 teamList.Items.Add(team.Name);
-            teamList.SelectedIndex = 0;           
+            teamList.SelectedIndex = 0;
+
         }
+
+        private void TeamList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            playerList.Items.Clear();
+            if (_teamRepository.Teams[teamList.SelectedIndex].Roster != null)
+                foreach (Player player in _teamRepository.Teams[teamList.SelectedIndex].Roster)
+                    playerList.Items.Add(player.Name);           
+        }
+
         private void TradePlayerButton_Click(object sender, EventArgs e)
         {
             if (playerList.SelectedItem != null) {
@@ -40,46 +53,17 @@ namespace Comp123_zcardoza_assign03
                 MessageBox.Show("Select a Player.");
         }
 
-        private void TeamList_SelectedIndexChanged(object sender, EventArgs e)
+        private void AddPlayerButton_Click(object sender, EventArgs e)
         {
-            playerList.Items.Clear();
-            if (_teamRepository.Teams[teamList.SelectedIndex].Roster != null)
-                foreach (Player player in _teamRepository.Teams[teamList.SelectedIndex].Roster)
-                    playerList.Items.Add(player.Name);           
+            string playerIDString = "Players Ids";
+            foreach (Player player in _teamRepository.Teams.Where(team => team.Roster != null).SelectMany(team => team.Roster))
+                playerIDString += $"\nPlayer ID: {player.PlayerId} ; Player Name: {player.Name}";
+            MessageBox.Show(playerIDString);
         }
 
         private void AddTeamButton_Click(object sender, EventArgs e)
         {
             addTeamPanel.Visible = true;
-            /* Linq
-            List<Player> players = new List<Player>();
-            foreach (Team team in _teamRepository.Teams)
-                if (team.Roster != null)
-                    foreach (Player player in team.Roster)
-                        players.Add(player);
-            List<Player> playersidovernumber = players.Where(player => player.PlayerId >= 30).ToList();
-            string playerIDString = "Players Ids";
-            foreach (Player player in playersidovernumber)
-                playerIDString += $"\nPlayer ID: {player.PlayerId} ; Player Name: {player.Name}";
-            MessageBox.Show(playerIDString);*/ 
-        }
-
-
-        private void AddPlayerButton_Click(object sender, EventArgs e)
-        {
-            string playerIDString = "Players Ids";
-
-            foreach (Team team in _teamRepository.Teams)
-                if (team.Roster != null)
-                    foreach (Player player in team.Roster)
-                        playerIDString += $"\nPlayer ID: {player.PlayerId} ; Player Name: {player.Name}";
-
-            MessageBox.Show(playerIDString);
-        }
-
-        private void ChangeToSeasonViewerButton_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void ConfirmAddTeamButton_Click(object sender, EventArgs e)
@@ -120,5 +104,11 @@ namespace Comp123_zcardoza_assign03
             else
                 MessageBox.Show("Enter a Name For Your Team");
         }
+
+        private void ChangeToSeasonViewerButton_Click(object sender, EventArgs e)
+        {
+            //_matchupRepository.GenerateSeason(_teamRepository.Teams);
+        }
+
     }
 }

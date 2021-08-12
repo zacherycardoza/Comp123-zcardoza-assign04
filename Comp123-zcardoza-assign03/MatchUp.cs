@@ -1,22 +1,21 @@
 ﻿namespace Comp123_zcardoza_assign03
 {
-    internal class MatchUp
+    internal class Matchup
     {
-        private static int NextId = 1;
-        public int PlayerId { get; set; }
-        public string Name { get; set; }
-        public Team Team { get; set; }
+        public static int NextId = 1;
+        public int MatchupId { get; set; }
+        public Team HomeTeam { get; set; }
+        public Team AwayTeam { get; set; }
 
-        public MatchUp()
+        public Matchup()
         {
-            PlayerId = NextId++;
+            MatchupId = NextId++;
         }
-
-        public MatchUp(string name, Team team)
+        public Matchup(Team homeTeam, Team awayTeam)
         {
-            Name = name;
-            Team = team;
-            PlayerId = NextId++;
+            MatchupId = NextId++;
+            HomeTeam = homeTeam;
+            AwayTeam = awayTeam;
         }
     }
 }
