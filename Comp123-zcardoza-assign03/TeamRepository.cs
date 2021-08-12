@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace Comp123_zcardoza_assign03
 {
-    class TeamRepository
+    internal class TeamRepository : IRepository
     {
         private List<Team> _Teams;
         public List<Team> Teams { get => _Teams; }
@@ -17,13 +17,15 @@ namespace Comp123_zcardoza_assign03
         public void TradePlayer(Player player, int currentTeamId, int newTeamId)
         {
             player.Team.Roster.Remove(player);
-            foreach(Team team in _Teams)          
+            foreach (Team team in _Teams)
                 if(team.TeamId == currentTeamId) {
                     team.Roster.Remove(player);
                     break;
                 }         
             foreach(Team team in _Teams)            
                 if(team.TeamId == newTeamId) {
+                    if (team.Roster == null)
+                        team.Roster = new List<Player>();
                     team.Roster.Add(player);
                     break;
                 }
@@ -39,9 +41,10 @@ namespace Comp123_zcardoza_assign03
                 string teamData = File.ReadAllText(teamRepository);
                 _Teams = JsonSerializer.Deserialize<List<Team>>(teamData);
 
-                foreach (Team team in _Teams)                
-                    foreach (Player player in team.Roster)
-                        player.Team = team;            
+                foreach (Team team in _Teams)  
+                    if (team.Roster != null)
+                        foreach (Player player in team.Roster)
+                            player.Team = team;            
             }
 
             catch (FileNotFoundException){
@@ -51,14 +54,33 @@ namespace Comp123_zcardoza_assign03
         public void Save(string teamRepository)
         {         
             try {
-                foreach (Team team in _Teams)                
-                    foreach (Player player in team.Roster)                   
-                        player.Team = null;
+                foreach (Team team in _Teams)
+                    if (team.Roster != null)
+                        foreach (Player player in team.Roster)                   
+                            player.Team = null;
                                    
                 string serializedData = JsonSerializer.Serialize(_Teams);
                 File.WriteAllText(teamRepository, serializedData);
             }
             catch {
+                MessageBox.Show("FAILED TO SAVE");
+            }
+        }
+        public void Save(string teamRepository, Team teamToAdd)
+        {
+            try
+            {
+                _Teams.Add(teamToAdd);
+                foreach (Team team in _Teams)
+                    if(team.Roster != null)
+                        foreach (Player player in team.Roster)
+                            player.Team = null;
+
+                string serializedData = JsonSerializer.Serialize(_Teams);
+                File.WriteAllText(teamRepository, serializedData);
+            }
+            catch
+            {
                 MessageBox.Show("FAILED TO SAVE");
             }
         }

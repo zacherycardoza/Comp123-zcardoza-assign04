@@ -6,7 +6,7 @@ namespace Comp123_zcardoza_assign03
     public partial class TradePlayerForm : Form
     {
         private Player _player;
-        private TeamRepository _teamRepository;
+        private readonly TeamRepository _teamRepository;
         public TradePlayerForm()
         {
             InitializeComponent();
@@ -17,10 +17,11 @@ namespace Comp123_zcardoza_assign03
         {   
             if (possibleTeamList.SelectedItem != null)
             {
-                foreach (Team Team in _teamRepository.Teams)               
-                    foreach (Player player in Team.Roster)                    
-                        if (player.Name == playerNameLabel.Text)
-                            _player = player;
+                foreach (Team team in _teamRepository.Teams) 
+                    if (team.Roster != null)
+                        foreach (Player player in team.Roster)                    
+                            if (player.Name == playerNameLabel.Text)
+                                _player = player;
                       
                 foreach (Team team in _teamRepository.Teams)
                     if (team.Name == possibleTeamList.SelectedItem.ToString()) {
@@ -28,8 +29,7 @@ namespace Comp123_zcardoza_assign03
                         break;
                     }
 
-                Form1 Main = new Form1();
-                Main.Location = Location;               
+                Form1 Main = new Form1 { Location = Location };
                 Main.Show();
                 Close();
             }
@@ -39,8 +39,7 @@ namespace Comp123_zcardoza_assign03
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            Form1 Main = new Form1();
-            Main.Location = Location;
+            Form1 Main = new Form1 { Location = Location };
             Main.Show();
             Close();
         }
