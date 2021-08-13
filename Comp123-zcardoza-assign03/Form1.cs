@@ -67,7 +67,7 @@ namespace Comp123_zcardoza_assign03
         }
         private void ChangeToSeasonViewerButton_Click(object sender, EventArgs e)
         {
-            _matchupRepository.GenerateSeason(_teamRepository.Teams);
+            //_matchupRepository.GenerateSeason(_teamRepository.Teams);
         }
 
         private void TeamList_SelectedIndexChanged(object sender, EventArgs e)
@@ -94,17 +94,50 @@ namespace Comp123_zcardoza_assign03
                 MessageBox.Show("Select a Player.");
         }
 
+        private void AddConfirmButton_Click(object sender, EventArgs e)
+        {
+            AddConfirmButton.Visible = false;
+            AddCancelButton.Visible = false;
+            TeamList.Visible = true;
+            PlayerList.Visible = true;
+            AddPlayerPanel.SendToBack();
+            MainPanel.BringToFront();
+        }
+
+        private void AddCancelButton_Click(object sender, EventArgs e)
+        {
+            AddConfirmButton.Visible = false;
+            AddCancelButton.Visible = false;
+            AddPlayerNewNameBox.Visible = false;
+            AddPlayerNewTeamList.Visible = false;
+            AddPlayerPanel.SendToBack();
+
+            TeamList.Visible = true;
+            PlayerList.Visible = true;
+            MainPanel.BringToFront();
+        }
+
         private void AddPlayerButton_Click(object sender, EventArgs e)
         {
-            string playerIDString = "Players Ids";
-            foreach (Player player in _teamRepository.Teams.Where(team => team.Roster != null).SelectMany(team => team.Roster))
-                playerIDString += $"\nPlayer ID: {player.PlayerId} ; Player Name: {player.Name}";
-            MessageBox.Show(playerIDString);
+            TeamList.Visible = false;
+            PlayerList.Visible = false;
+
+            AddPlayerNewTeamList.Items.Clear();
+            foreach (Team team in _teamRepository.Teams)
+                AddPlayerNewTeamList.Items.Add(team.Name);
+            
+            AddPlayerNewNameBox.Visible = true;
+            AddPlayerNewTeamList.Visible = true;
+            AddConfirmButton.Visible = true;
+            AddCancelButton.Visible = true;
+            AddPlayerNewTeamList.Visible = true;
+            AddPlayerPanel.BringToFront();
         }
 
         private void AddTeamButton_Click(object sender, EventArgs e)
         {
 
         }
+
     }
 }

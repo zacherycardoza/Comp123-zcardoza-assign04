@@ -188,6 +188,12 @@
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SeasonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SeasonForm.Designer.cs">
+      <DependentUpon>SeasonForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Team.cs" />
     <Compile Include="TeamRepository.cs" />
     <Compile Include="TradePlayerForm.cs">
@@ -209,6 +215,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SeasonForm.resx">
+      <DependentUpon>SeasonForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TradePlayerForm.resx">
       <DependentUpon>TradePlayerForm.cs</DependentUpon>
     </EmbeddedResource>
