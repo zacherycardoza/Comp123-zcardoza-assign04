@@ -13,8 +13,9 @@ namespace Comp123_zcardoza_assign03
             _teamRepository = new TeamRepository("teamData.json");  
         }
 
-        private void AcceptButton_Click(object sender, EventArgs e)
-        {   
+
+        private void AcceptTradeButton_Click(object sender, EventArgs e)
+        {
             if (possibleTeamList.SelectedItem != null)
             {
                 foreach (Team team in _teamRepository.Teams) 
@@ -29,7 +30,7 @@ namespace Comp123_zcardoza_assign03
                         break;
                     }
 
-                Form1 Main = new Form1 { Location = Location };
+                Form1 Main = new Form1();
                 Main.Show();
                 Close();
             }
@@ -37,9 +38,9 @@ namespace Comp123_zcardoza_assign03
                 MessageBox.Show("Select a Team.");   
         }
 
-        private void CancelButton_Click(object sender, EventArgs e)
+        private void CancelTradeButton_Click(object sender, EventArgs e)
         {
-            Form1 Main = new Form1 { Location = Location };
+            Form1 Main = new Form1();
             Main.Show();
             Close();
         }

@@ -55,6 +55,7 @@ namespace Comp123_zcardoza_assign03
         {
             List<Team> validCurrentSeasonTeams = new List<Team>();
             validCurrentSeasonTeams = currentTeams.Where(team => team.Roster != null).Where(team => team.Roster.Count > 0).ToList();
+            _Matchups.Clear();
             foreach (Team homeTeam in validCurrentSeasonTeams) 
                 foreach (Team awayTeam in validCurrentSeasonTeams)
                     if (awayTeam.TeamId != homeTeam.TeamId)

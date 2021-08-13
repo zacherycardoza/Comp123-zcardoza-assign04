@@ -22,53 +22,14 @@ namespace Comp123_zcardoza_assign03
             InitializeComponent();
             _teamRepository = new TeamRepository("teamData.json");
             _matchupRepository = new MatchupRepository("matchupDataFile.json");
-            foreach(Team team in _teamRepository.Teams)
-                teamList.Items.Add(team.Name);
-            teamList.SelectedIndex = 0;
-
-        }
-
-        private void TeamList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            playerList.Items.Clear();
-            if (_teamRepository.Teams[teamList.SelectedIndex].Roster != null)
-                foreach (Player player in _teamRepository.Teams[teamList.SelectedIndex].Roster)
-                    playerList.Items.Add(player.Name);           
-        }
-
-        private void TradePlayerButton_Click(object sender, EventArgs e)
-        {
-            if (playerList.SelectedItem != null) {
-                TradePlayerForm tradePlayerForm = new TradePlayerForm();
-                tradePlayerForm.playerNameLabel.Text = playerList.SelectedItem.ToString();
-                tradePlayerForm.playerCurrentTeam.Text = teamList.SelectedItem.ToString();
-                foreach (Team Team in _teamRepository.Teams)
-                    if (Team.Name != teamList.SelectedItem.ToString())
-                        tradePlayerForm.possibleTeamList.Items.Add(Team.Name);
-                tradePlayerForm.Location = Location;
-                tradePlayerForm.Show();
-                Hide();
-            }
-            else
-                MessageBox.Show("Select a Player.");
-        }
-
-        private void AddPlayerButton_Click(object sender, EventArgs e)
-        {
-            string playerIDString = "Players Ids";
-            foreach (Player player in _teamRepository.Teams.Where(team => team.Roster != null).SelectMany(team => team.Roster))
-                playerIDString += $"\nPlayer ID: {player.PlayerId} ; Player Name: {player.Name}";
-            MessageBox.Show(playerIDString);
-        }
-
-        private void AddTeamButton_Click(object sender, EventArgs e)
-        {
-            addTeamPanel.Visible = true;
-        }
+            foreach (Team team in _teamRepository.Teams)
+                TeamList.Items.Add(team.Name);
+            TeamList.SelectedIndex = 0;
+        }   
 
         private void ConfirmAddTeamButton_Click(object sender, EventArgs e)
         {
-            addTeamPanel.Visible = false;
+           /* addTeamPanel.Visible = false;
             if (NewTeamNameBox.TextLength > 0)
             {
                 Team newTeam = new Team(NewTeamNameBox.Text);
@@ -102,13 +63,48 @@ namespace Comp123_zcardoza_assign03
                         playerList.Items.Add(player.Name);
             }
             else
-                MessageBox.Show("Enter a Name For Your Team");
+                MessageBox.Show("Enter a Name For Your Team");*/
         }
-
         private void ChangeToSeasonViewerButton_Click(object sender, EventArgs e)
         {
-            //_matchupRepository.GenerateSeason(_teamRepository.Teams);
+            _matchupRepository.GenerateSeason(_teamRepository.Teams);
         }
 
+        private void TeamList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            PlayerList.Items.Clear();
+            if (_teamRepository.Teams[TeamList.SelectedIndex].Roster != null)
+                foreach (Player player in _teamRepository.Teams[TeamList.SelectedIndex].Roster)
+                    PlayerList.Items.Add(player.Name);
+        }
+
+        private void TradePlayerButton_Click(object sender, EventArgs e)
+        {
+            if (PlayerList.SelectedItem != null) {
+                TradePlayerForm tradePlayerForm = new TradePlayerForm();
+                tradePlayerForm.playerNameLabel.Text = PlayerList.SelectedItem.ToString();
+                tradePlayerForm.playerCurrentTeam.Text = TeamList.SelectedItem.ToString();
+                foreach (Team Team in _teamRepository.Teams)
+                    if (Team.Name != TeamList.SelectedItem.ToString())
+                        tradePlayerForm.possibleTeamList.Items.Add(Team.Name);
+                tradePlayerForm.Show();
+                Hide();
+            }
+            else
+                MessageBox.Show("Select a Player.");
+        }
+
+        private void AddPlayerButton_Click(object sender, EventArgs e)
+        {
+            string playerIDString = "Players Ids";
+            foreach (Player player in _teamRepository.Teams.Where(team => team.Roster != null).SelectMany(team => team.Roster))
+                playerIDString += $"\nPlayer ID: {player.PlayerId} ; Player Name: {player.Name}";
+            MessageBox.Show(playerIDString);
+        }
+
+        private void AddTeamButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
