@@ -24,11 +24,12 @@ namespace Comp123_zcardoza_assign03
                     throw new FileNotFoundException();
                 
                 string matchupData = File.ReadAllText(matchupRepositoryFile);
-                _Matchups = JsonSerializer.Deserialize<List<Matchup>>(matchupData);         
+                if ( !string.IsNullOrEmpty(matchupData) )
+                    _Matchups = JsonSerializer.Deserialize<List<Matchup>>(matchupData);         
             }
 
             catch (FileNotFoundException){
-                MessageBox.Show("wHeRe MaTcHuP fIlE?");
+                File.WriteAllText(matchupRepositoryFile, "");
             }
         }
 
@@ -53,9 +54,9 @@ namespace Comp123_zcardoza_assign03
 
         public void GenerateSeason(List<Team> currentTeams)
         {
+            _Matchups = new List<Matchup>();
             List<Team> validCurrentSeasonTeams = new List<Team>();
-            validCurrentSeasonTeams = currentTeams.Where(team => team.Roster != null).Where(team => team.Roster.Count > 0).ToList();
-            _Matchups.Clear();
+            validCurrentSeasonTeams = currentTeams.Where(team => team.Roster != null).Where(team => team.Roster.Count > 0).ToList();            
             foreach (Team homeTeam in validCurrentSeasonTeams) 
                 foreach (Team awayTeam in validCurrentSeasonTeams)
                     if (awayTeam.TeamId != homeTeam.TeamId)

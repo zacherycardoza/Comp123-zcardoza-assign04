@@ -30,8 +30,13 @@ namespace Comp123_zcardoza_assign03
                         break;
                     }
 
-                Form1 Main = new Form1();
-                Main.Show();
+                if (Application.OpenForms.Count > 1)
+                    foreach (Form frm in Application.OpenForms)       
+                        if (frm.Name == "Form1") {
+                            Form main = frm as Form1;
+                            main.Show();
+                            break;
+                        }              
                 Close();
             }
             else 
@@ -40,8 +45,14 @@ namespace Comp123_zcardoza_assign03
 
         private void CancelTradeButton_Click(object sender, EventArgs e)
         {
-            Form1 Main = new Form1();
-            Main.Show();
+            if (Application.OpenForms.Count > 1)            
+                foreach (Form frm in Application.OpenForms)                  
+                    if (frm.Name == "Form1") {
+                        Form main = frm as Form1;
+                        main.Show();
+                        break;
+                    }
+                                  
             Close();
         }
     }

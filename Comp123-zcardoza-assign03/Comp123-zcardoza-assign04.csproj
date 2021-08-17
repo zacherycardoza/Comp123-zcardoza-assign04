@@ -236,10 +236,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\soccer-tactics-472.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\social-group.png" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

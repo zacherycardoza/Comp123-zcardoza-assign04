@@ -59,25 +59,5 @@ namespace Comp123_zcardoza_assign03.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap soccer_tactics_472 {
-            get {
-                object obj = ResourceManager.GetObject("soccer-tactics-472", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap social_group {
-            get {
-                object obj = ResourceManager.GetObject("social-group", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }

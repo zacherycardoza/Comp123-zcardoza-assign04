@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Comp123-zcardoza-assign03", "Comp123-zcardoza-assign03\Comp123-zcardoza-assign03.csproj", "{29AD6888-2602-4DED-9739-CA8FC30033ED}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Comp123-zcardoza-assign04", "Comp123-zcardoza-assign03\Comp123-zcardoza-assign04.csproj", "{29AD6888-2602-4DED-9739-CA8FC30033ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Comp123-ZCardoza-Assign04-UnitTests", "Comp123-ZCardoza-Assign04-UnitTests\Comp123-ZCardoza-Assign04-UnitTests.csproj", "{007EB936-DC2C-4A77-8E46-9608F4C26994}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{29AD6888-2602-4DED-9739-CA8FC30033ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29AD6888-2602-4DED-9739-CA8FC30033ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29AD6888-2602-4DED-9739-CA8FC30033ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{007EB936-DC2C-4A77-8E46-9608F4C26994}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{007EB936-DC2C-4A77-8E46-9608F4C26994}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{007EB936-DC2C-4A77-8E46-9608F4C26994}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{007EB936-DC2C-4A77-8E46-9608F4C26994}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

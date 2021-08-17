@@ -65,7 +65,7 @@ namespace Comp123_zcardoza_assign03
             this.playerCurrentTeam.AutoSize = true;
             this.playerCurrentTeam.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.playerCurrentTeam.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(132)))), ((int)(((byte)(117)))));
-            this.playerCurrentTeam.Location = new System.Drawing.Point(36, 152);
+            this.playerCurrentTeam.Location = new System.Drawing.Point(35, 195);
             this.playerCurrentTeam.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.playerCurrentTeam.Name = "playerCurrentTeam";
             this.playerCurrentTeam.Size = new System.Drawing.Size(234, 31);
@@ -103,7 +103,7 @@ namespace Comp123_zcardoza_assign03
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(132)))), ((int)(((byte)(117)))));
-            this.label1.Location = new System.Drawing.Point(37, 181);
+            this.label1.Location = new System.Drawing.Point(37, 158);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(115, 21);

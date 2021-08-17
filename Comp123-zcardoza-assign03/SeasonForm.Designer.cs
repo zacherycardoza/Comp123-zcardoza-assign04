@@ -30,12 +30,16 @@ namespace Comp123_zcardoza_assign03
         private void InitializeComponent()
         {
             this.MainPanel = new System.Windows.Forms.Panel();
+            this.SeasonMatchupDataGrid = new System.Windows.Forms.DataGridView();
             this.HeaderPanel = new System.Windows.Forms.Panel();
             this.HeaderLabel = new System.Windows.Forms.Label();
             this.SeasonManagerLabel = new System.Windows.Forms.Label();
-            this.ChangeToSeasonViewerButton = new System.Windows.Forms.Button();
+            this.GenerateSeasonButton = new System.Windows.Forms.Button();
             this.Header = new System.Windows.Forms.Panel();
             this.SideMenu = new System.Windows.Forms.Panel();
+            this.ChangeToTeamViewButton = new System.Windows.Forms.Button();
+            this.MainPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SeasonMatchupDataGrid)).BeginInit();
             this.HeaderPanel.SuspendLayout();
             this.Header.SuspendLayout();
             this.SideMenu.SuspendLayout();
@@ -44,11 +48,25 @@ namespace Comp123_zcardoza_assign03
             // MainPanel
             // 
             this.MainPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(248)))), ((int)(((byte)(247)))));
+            this.MainPanel.Controls.Add(this.SeasonMatchupDataGrid);
             this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainPanel.Location = new System.Drawing.Point(186, 100);
             this.MainPanel.Name = "MainPanel";
             this.MainPanel.Size = new System.Drawing.Size(765, 477);
             this.MainPanel.TabIndex = 7;
+            // 
+            // SeasonMatchupDataGrid
+            // 
+            this.SeasonMatchupDataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(248)))), ((int)(((byte)(247)))));
+            this.SeasonMatchupDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.SeasonMatchupDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SeasonMatchupDataGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(248)))), ((int)(((byte)(247)))));
+            this.SeasonMatchupDataGrid.Location = new System.Drawing.Point(0, 0);
+            this.SeasonMatchupDataGrid.Name = "SeasonMatchupDataGrid";
+            this.SeasonMatchupDataGrid.RowHeadersWidth = 62;
+            this.SeasonMatchupDataGrid.RowTemplate.Height = 28;
+            this.SeasonMatchupDataGrid.Size = new System.Drawing.Size(765, 477);
+            this.SeasonMatchupDataGrid.TabIndex = 0;
             // 
             // HeaderPanel
             // 
@@ -84,19 +102,20 @@ namespace Comp123_zcardoza_assign03
             this.SeasonManagerLabel.TabIndex = 0;
             this.SeasonManagerLabel.Text = "Season Manager";
             // 
-            // ChangeToSeasonViewerButton
+            // GenerateSeasonButton
             // 
-            this.ChangeToSeasonViewerButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ChangeToSeasonViewerButton.FlatAppearance.BorderSize = 0;
-            this.ChangeToSeasonViewerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ChangeToSeasonViewerButton.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ChangeToSeasonViewerButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(132)))), ((int)(((byte)(117)))));
-            this.ChangeToSeasonViewerButton.Location = new System.Drawing.Point(0, 100);
-            this.ChangeToSeasonViewerButton.Name = "ChangeToSeasonViewerButton";
-            this.ChangeToSeasonViewerButton.Size = new System.Drawing.Size(186, 75);
-            this.ChangeToSeasonViewerButton.TabIndex = 0;
-            this.ChangeToSeasonViewerButton.Text = "Season View";
-            this.ChangeToSeasonViewerButton.UseVisualStyleBackColor = true;
+            this.GenerateSeasonButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.GenerateSeasonButton.FlatAppearance.BorderSize = 0;
+            this.GenerateSeasonButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.GenerateSeasonButton.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GenerateSeasonButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(132)))), ((int)(((byte)(117)))));
+            this.GenerateSeasonButton.Location = new System.Drawing.Point(0, 502);
+            this.GenerateSeasonButton.Name = "GenerateSeasonButton";
+            this.GenerateSeasonButton.Size = new System.Drawing.Size(186, 75);
+            this.GenerateSeasonButton.TabIndex = 0;
+            this.GenerateSeasonButton.Text = "Generate Season Matchups";
+            this.GenerateSeasonButton.UseVisualStyleBackColor = true;
+            this.GenerateSeasonButton.Click += new System.EventHandler(this.GenerateSeasonButton_Click);
             // 
             // Header
             // 
@@ -112,13 +131,29 @@ namespace Comp123_zcardoza_assign03
             // SideMenu
             // 
             this.SideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(71)))), ((int)(((byte)(63)))));
-            this.SideMenu.Controls.Add(this.ChangeToSeasonViewerButton);
+            this.SideMenu.Controls.Add(this.GenerateSeasonButton);
+            this.SideMenu.Controls.Add(this.ChangeToTeamViewButton);
             this.SideMenu.Controls.Add(this.Header);
             this.SideMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.SideMenu.Location = new System.Drawing.Point(0, 0);
             this.SideMenu.Name = "SideMenu";
             this.SideMenu.Size = new System.Drawing.Size(186, 577);
             this.SideMenu.TabIndex = 5;
+            // 
+            // ChangeToTeamViewButton
+            // 
+            this.ChangeToTeamViewButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ChangeToTeamViewButton.FlatAppearance.BorderSize = 0;
+            this.ChangeToTeamViewButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ChangeToTeamViewButton.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChangeToTeamViewButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(132)))), ((int)(((byte)(117)))));
+            this.ChangeToTeamViewButton.Location = new System.Drawing.Point(0, 100);
+            this.ChangeToTeamViewButton.Name = "ChangeToTeamViewButton";
+            this.ChangeToTeamViewButton.Size = new System.Drawing.Size(186, 75);
+            this.ChangeToTeamViewButton.TabIndex = 1;
+            this.ChangeToTeamViewButton.Text = "Team View";
+            this.ChangeToTeamViewButton.UseVisualStyleBackColor = true;
+            this.ChangeToTeamViewButton.Click += new System.EventHandler(this.ChangeToTeamViewButton_Click);
             // 
             // SeasonForm
             // 
@@ -134,6 +169,8 @@ namespace Comp123_zcardoza_assign03
             this.Name = "SeasonForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SeasonForm";
+            this.MainPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SeasonMatchupDataGrid)).EndInit();
             this.HeaderPanel.ResumeLayout(false);
             this.HeaderPanel.PerformLayout();
             this.Header.ResumeLayout(false);
@@ -149,8 +186,10 @@ namespace Comp123_zcardoza_assign03
         private System.Windows.Forms.Panel HeaderPanel;
         private System.Windows.Forms.Label HeaderLabel;
         private System.Windows.Forms.Label SeasonManagerLabel;
-        private System.Windows.Forms.Button ChangeToSeasonViewerButton;
+        private System.Windows.Forms.Button GenerateSeasonButton;
         private System.Windows.Forms.Panel Header;
         private System.Windows.Forms.Panel SideMenu;
+        private System.Windows.Forms.DataGridView SeasonMatchupDataGrid;
+        private System.Windows.Forms.Button ChangeToTeamViewButton;
     }
 }

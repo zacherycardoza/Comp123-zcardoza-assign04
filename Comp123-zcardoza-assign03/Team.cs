@@ -20,5 +20,10 @@ namespace Comp123_zcardoza_assign03
             Name = name;
             TeamId = NextId++;
         }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }
