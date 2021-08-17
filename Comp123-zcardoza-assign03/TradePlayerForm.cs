@@ -36,7 +36,8 @@ namespace Comp123_zcardoza_assign03
                             Form main = frm as Form1;
                             main.Show();
                             break;
-                        }              
+                        }
+                _teamRepository.Save("teamData.json");
                 Close();
             }
             else 

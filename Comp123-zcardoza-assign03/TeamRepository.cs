@@ -29,8 +29,6 @@ namespace Comp123_zcardoza_assign03
                     team.Roster.Add(player);
                     break;
                 }
-            
-            Save("teamData.json");
         }
         public void Load(string teamRepository)
         {

@@ -14,14 +14,14 @@ namespace Comp123_zcardoza_assign03
 {
     public partial class Form1 : Form
     {
-        private readonly TeamRepository _teamRepository;
+        private TeamRepository _teamRepository;
 
         public Form1()
         {
             InitializeComponent();
             _teamRepository = new TeamRepository("teamData.json");
             foreach (Team team in _teamRepository.Teams)
-                TeamList.Items.Add(team.Name);
+                TeamList.Items.Add(team.ToString());
             TeamList.SelectedIndex = 0;
         }   
 
@@ -30,6 +30,7 @@ namespace Comp123_zcardoza_assign03
         private void TeamList_SelectedIndexChanged(object sender, EventArgs e)
         {
             PlayerList.Items.Clear();
+            _teamRepository = new TeamRepository("teamData.json");
             if (_teamRepository.Teams[TeamList.SelectedIndex].Roster != null)
                 foreach (Player player in _teamRepository.Teams[TeamList.SelectedIndex].Roster)
                     PlayerList.Items.Add(player.Name);
@@ -45,7 +46,8 @@ namespace Comp123_zcardoza_assign03
                     if (Team.Name != TeamList.SelectedItem.ToString())
                         tradePlayerForm.possibleTeamList.Items.Add(Team.Name);
                 tradePlayerForm.Show();
-                Hide();           
+                Hide();
+                TeamList.SelectedIndex = 0;
             }
             else
                 MessageBox.Show("Select a Player.");

@@ -206,7 +206,7 @@ namespace Comp123_zcardoza_assign03
             this.TeamList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(132)))), ((int)(((byte)(117)))));
             this.TeamList.FormattingEnabled = true;
             this.TeamList.ItemHeight = 27;
-            this.TeamList.Location = new System.Drawing.Point(34, 20);
+            this.TeamList.Location = new System.Drawing.Point(22, 20);
             this.TeamList.Name = "TeamList";
             this.TeamList.Size = new System.Drawing.Size(256, 432);
             this.TeamList.TabIndex = 1;
@@ -409,8 +409,8 @@ namespace Comp123_zcardoza_assign03
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(951, 577);
-            this.Controls.Add(this.AddTeamPanel);
             this.Controls.Add(this.MainPanel);
+            this.Controls.Add(this.AddTeamPanel);
             this.Controls.Add(this.AddPlayerPanel);
             this.Controls.Add(this.HeaderPanel);
             this.Controls.Add(this.SideMenu);
@@ -444,7 +444,6 @@ namespace Comp123_zcardoza_assign03
         private System.Windows.Forms.Button AddTeamButton;
         private System.Windows.Forms.Button AddPlayerButton;
         private System.Windows.Forms.Button TradePlayerButton;
-        private System.Windows.Forms.ListBox TeamList;
         private System.Windows.Forms.Panel HeaderPanel;
         private System.Windows.Forms.Label HeaderLabel;
         private System.Windows.Forms.Panel MainPanel;
@@ -463,6 +462,7 @@ namespace Comp123_zcardoza_assign03
         private System.Windows.Forms.TextBox AddTeamRosterPlayerOneName;
         private System.Windows.Forms.Button AddTeamRosterAdditionalPlayerButton;
         private System.Windows.Forms.Panel AddTeamRosterPanel;
+        public System.Windows.Forms.ListBox TeamList;
     }
 }
 
