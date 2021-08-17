@@ -27,8 +27,10 @@ namespace Comp123_zcardoza_assign03
                     if (team.Roster == null)
                         team.Roster = new List<Player>();
                     team.Roster.Add(player);
+                    player.Team = team;
                     break;
                 }
+            Save("teamData.json");
         }
         public void Load(string teamRepository)
         {

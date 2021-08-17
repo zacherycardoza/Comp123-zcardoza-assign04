@@ -30,10 +30,14 @@ namespace Comp123_zcardoza_assign03
         private void TeamList_SelectedIndexChanged(object sender, EventArgs e)
         {
             PlayerList.Items.Clear();
-            _teamRepository = new TeamRepository("teamData.json");
-            if (_teamRepository.Teams[TeamList.SelectedIndex].Roster != null)
-                foreach (Player player in _teamRepository.Teams[TeamList.SelectedIndex].Roster)
-                    PlayerList.Items.Add(player.Name);
+            if (TeamList.SelectedIndex == -1) { 
+                _teamRepository = new TeamRepository("teamData.json");
+                TeamList.SelectedIndex = 0;
+            }
+            else 
+                if (_teamRepository.Teams[TeamList.SelectedIndex].Roster != null)
+                    foreach (Player player in _teamRepository.Teams[TeamList.SelectedIndex].Roster)
+                        PlayerList.Items.Add(player.Name);
         }
 
         private void TradePlayerButton_Click(object sender, EventArgs e)
@@ -47,7 +51,6 @@ namespace Comp123_zcardoza_assign03
                         tradePlayerForm.possibleTeamList.Items.Add(Team.Name);
                 tradePlayerForm.Show();
                 Hide();
-                TeamList.SelectedIndex = 0;
             }
             else
                 MessageBox.Show("Select a Player.");
@@ -62,7 +65,7 @@ namespace Comp123_zcardoza_assign03
                     if ( !string.IsNullOrEmpty(AddPlayerNewNameBox.Text) ) {
                         _teamRepository.Teams[AddPlayerNewTeamList.SelectedIndex].Roster.Add(new Player(AddPlayerNewNameBox.Text, _teamRepository.Teams[AddPlayerNewTeamList.SelectedIndex]));
                         _teamRepository.Save("teamData.json");
-                        TeamList.SelectedIndex = 0;
+                        TeamList.SelectedItem = AddPlayerNewTeamList.SelectedItem;
                         AddPlayerNewNameBox.Visible = false;
                         AddPlayerNewTeamList.Visible = false;
                         AddPlayerPanel.Visible = false;

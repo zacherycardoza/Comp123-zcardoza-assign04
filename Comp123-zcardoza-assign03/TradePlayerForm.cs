@@ -33,11 +33,11 @@ namespace Comp123_zcardoza_assign03
                 if (Application.OpenForms.Count > 1)
                     foreach (Form frm in Application.OpenForms)       
                         if (frm.Name == "Form1") {
-                            Form main = frm as Form1;
+                            Form1 main = frm as Form1;
+                            main.TeamList.ClearSelected();
                             main.Show();
                             break;
                         }
-                _teamRepository.Save("teamData.json");
                 Close();
             }
             else 
